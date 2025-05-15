@@ -11,14 +11,14 @@ class Node{
 
 class DoubleLinkedList{
     private:
-        Node *STARAT;
+        Node *START;
     
     public:
         DoubleLinkedList(){
-            STARAT = NULL;
+            START = NULL;
         }
         
-        void addNote(){
+        void addNode(){
             int nim;
             string nm;
             cout << "\nEnter the roll number of the student: ";
@@ -31,23 +31,35 @@ class DoubleLinkedList{
             newNode->noMhs = nim;
 
             // Step 3 : Insert at beginning if list is empty or nim is smallest
-            if (STARAT == NULL || nim <= STARAT->noMhs){
-                if (STARAT != NULL && nim == STARAT->noMhs){
+            if (START == NULL || nim <= START->noMhs){
+                if (START != NULL && nim == START->noMhs){
                     cout << "\nDuplicate number not allowed" << endl;
                     return;
                 }
                 // Step 4 : newNode.next = START
-                newNode->next = STARAT;
+                newNode->next = START;
 
                 // Step 5 : START.prev = newNode (if START exists)
-                if (STARAT != NULL)
-                    STARAT->prev = newNode;
+                if (START != NULL)
+                    START->prev = newNode;
 
                 // Step 6 : newNode.prev = NULL
                 newNode->prev = NULL;
 
                 // Step 7 : START = newNode
-                STARAT = newNode;
+                START = newNode;
+                return;
+            }
+
+            // insert in between node
+            // Step 8 : Locate position for insertion
+            Node *current = START;
+            while (current->next != NULL && current->next->noMhs < nim){
+                current = current->next;
+            }
+
+            if (current->next  != NULL && nim == current->next->noMhs){
+                cout << "\nDuplicate roll numbers not allowed" << endl;
                 return;
             }
         }
