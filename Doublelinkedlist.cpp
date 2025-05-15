@@ -38,6 +38,10 @@ class DoubleLinkedList{
                 }
                 // Step 4 : newNode.next = START
                 newNode->next = STARAT;
+
+                // Step 5 : START.prev = newNode (if START exists)
+                if (STARAT != NULL)
+                    STARAT->prev = newNode;
             }
         }
 
