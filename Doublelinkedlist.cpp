@@ -9,6 +9,17 @@ class Node{
         Node *prev;
 };
 
+class DoubleLinkedList{
+    private:
+        Node *STARAT;
+    
+    public:
+        DoubleLinkedList(){
+            STARAT = NULL;
+        }
+        
+};
+
 int main(){
 
 }
