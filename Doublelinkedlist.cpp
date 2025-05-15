@@ -120,6 +120,11 @@ class DoubleLinkedList{
                 cout << "\nList is empty" << endl;
                 return;
             }
+            // Step 1 : Mark frist node as currentNode
+            Node *currentNode = START;
+            // Step 2 : Repeat until currentNode == NULL
+            cout << "\nRecords in ascending order of roll number are:\n";
+            int i = 0;
         }
 
 };
